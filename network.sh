@@ -22,6 +22,8 @@ echo "COPY app.py /home/myapp/" >> web/Dockerfile
 echo "EXPOSE 8080" >> web/Dockerfile
 echo "CMD python3 /home/myapp/app.py" >> web/Dockerfile
 
+docker container rm -f $(docker container ls -a -q)
+
 cd web
 docker build -t web .
 docker run -d -p 27017:27017 --network app-net -v mongo-data:/data/db --name mongo mongo:6
