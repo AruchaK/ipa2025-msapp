@@ -9,7 +9,7 @@ rabbitmq_pass = os.environ.get('RABBITMQ_PASS', 'guest')
 
 def scheduler():
 
-    INTERVAL = 10.0
+    INTERVAL = 60.0
     next_run = time.monotonic()
     count = 0
 
