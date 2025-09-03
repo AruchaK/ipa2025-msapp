@@ -3,9 +3,11 @@ import time, pika, os
 from bson import json_util
 from producer import produce
 from database import get_router_info
-rabbitmq_host = os.environ.get('RABBITMQ_HOST', 'localhost')
-rabbitmq_user = os.environ.get('RABBITMQ_USER', 'guest')
-rabbitmq_pass = os.environ.get('RABBITMQ_PASS', 'guest')
+
+rabbitmq_host = os.environ.get("RABBITMQ_HOST", "localhost")
+rabbitmq_user = os.environ.get("RABBITMQ_USER", "guest")
+rabbitmq_pass = os.environ.get("RABBITMQ_PASS", "guest")
+
 
 def scheduler():
 
@@ -29,7 +31,8 @@ def scheduler():
             time.sleep(3)
         count += 1
         next_run += INTERVAL
-        time.sleep(max(0.0, next_run - time.monotonic())) 
+        time.sleep(max(0.0, next_run - time.monotonic()))
+
 
 if __name__ == "__main__":
     scheduler()
