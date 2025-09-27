@@ -6,9 +6,9 @@ from bson import json_util
 from producer import produce
 from database import get_router_info
 
-rabbitmq_host = os.environ.get("RABBITMQ_HOST", "localhost")
-rabbitmq_user = os.environ.get("RABBITMQ_USER", "guest")
-rabbitmq_pass = os.environ.get("RABBITMQ_PASS", "guest")
+rabbitmq_host = os.getenv("RABBITMQ_HOST")
+rabbitmq_user = os.getenv("RABBITMQ_USER")
+rabbitmq_pass = os.getenv("RABBITMQ_PASS")
 
 
 def scheduler():
